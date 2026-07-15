@@ -1,0 +1,4 @@
+INSERT INTO Accounts VALUES (101,1,'Savings',10000);
+INSERT INTO Accounts VALUES (102,2,'Savings',5000);
+
+COMMIT;
