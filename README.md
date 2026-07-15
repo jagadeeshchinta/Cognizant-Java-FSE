@@ -165,3 +165,38 @@ B.Tech – Computer Science and Engineering
 Lovely Professional University
 
 ---
+
+
+# Week 2 – PL/SQL Programming Exercises
+
+## Overview
+This project contains solutions for Week 3 PL/SQL exercises as part of the Cognizant Digital Nurture Program.
+
+## Exercises Completed
+
+### Exercise 1: Control Structures
+- Applied a 1% interest discount for customers above 60 years.
+- Updated VIP status for customers with a balance greater than 10,000.
+- Generated reminder messages for loans due within the next 30 days.
+
+### Exercise 2: Stored Procedures
+- **ProcessMonthlyInterest** – Updates savings account balances by applying 1% monthly interest.
+- **UpdateEmployeeBonus** – Updates employee salaries by adding a bonus percentage for a specified department.
+- **TransferFunds** – Transfers funds between accounts after checking sufficient balance.
+
+## Files
+
+- `schema.sql` – Database table creation scripts.
+- `sample_data.sql` – Sample data for testing.
+- `ControlStructures.sql` – PL/SQL control structure solutions.
+- `StoredProcedures.sql` – Stored procedure implementations.
+
+## Technologies Used
+
+- Oracle PL/SQL
+- Oracle SQL
+- SQL*Plus / Oracle Database 11g XE
+
+## Author
+
+**Jagadeesh Chinta**
