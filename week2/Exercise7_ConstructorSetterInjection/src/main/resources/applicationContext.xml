@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--
+        ============================================================
+        Exercise 7: Implementing Constructor and Setter Injection
+        applicationContext.xml
+        ============================================================
+    -->
+
+    <!-- Bean definition for BookRepository -->
+    <bean id="bookRepository" class="com.library.repository.BookRepository"/>
+
+    <!--
+        Bean definition for BookService using CONSTRUCTOR INJECTION.
+
+        The <constructor-arg> tag passes 'bookRepository' bean as
+        the argument to the BookService(BookRepository) constructor.
+
+        Additionally, SETTER INJECTION is demonstrated by the
+        <property name="libraryName"> tag, which calls setLibraryName().
+    -->
+    <bean id="bookService" class="com.library.service.BookService">
+
+        <!-- CONSTRUCTOR INJECTION: BookRepository injected via constructor -->
+        <constructor-arg ref="bookRepository"/>
+
+        <!-- SETTER INJECTION: libraryName injected via setter method -->
+        <property name="libraryName" value="City Central Library"/>
+
+    </bean>
+
+</beans>

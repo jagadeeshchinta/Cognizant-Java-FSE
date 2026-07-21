@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--
+        ============================================================
+        Exercise 5: Configuring the Spring IoC Container
+        applicationContext.xml - Central Spring Bean Configuration
+        ============================================================
+    -->
+
+    <!-- Bean definition for BookRepository (Data Access Layer) -->
+    <bean id="bookRepository" class="com.library.repository.BookRepository"/>
+
+    <!--
+        Bean definition for BookService (Service Layer).
+        Uses Setter Injection to wire the BookRepository dependency.
+        Spring calls setBookRepository() automatically after instantiation.
+    -->
+    <bean id="bookService" class="com.library.service.BookService">
+        <property name="bookRepository" ref="bookRepository"/>
+    </bean>
+
+</beans>
