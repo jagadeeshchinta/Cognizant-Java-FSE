@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    country.xml - Spring XML Configuration for all supported countries.
+    Exercise 3: REST Services - Country Web Service
+
+    Defines:
+    1. Individual country beans (countryUS, countryDE, countryIN, countryJP)
+    2. A countryList bean (java.util.ArrayList) containing all country refs
+       - Used by CountryService to return the full country list and search by code
+-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- ===== Individual Country Beans ===== -->
+
+    <bean id="countryUS" class="com.cognizant.springlearn.Country">
+        <property name="code" value="US"/>
+        <property name="name" value="United States"/>
+    </bean>
+
+    <bean id="countryDE" class="com.cognizant.springlearn.Country">
+        <property name="code" value="DE"/>
+        <property name="name" value="Germany"/>
+    </bean>
+
+    <!-- Default 'country' bean = India (used by /country endpoint) -->
+    <bean id="country" class="com.cognizant.springlearn.Country">
+        <property name="code" value="IN"/>
+        <property name="name" value="India"/>
+    </bean>
+
+    <bean id="countryJP" class="com.cognizant.springlearn.Country">
+        <property name="code" value="JP"/>
+        <property name="name" value="Japan"/>
+    </bean>
+
+    <!--
+        countryList bean: All supported countries as a java.util.ArrayList.
+        Uses <constructor-arg> with a <list> to pass all country beans.
+        Used by CountryService.getCountry(code) to search by country code.
+    -->
+    <bean id="countryList" class="java.util.ArrayList">
+        <constructor-arg>
+            <list>
+                <ref bean="countryUS"/>
+                <ref bean="countryDE"/>
+                <ref bean="country"/>
+                <ref bean="countryJP"/>
+            </list>
+        </constructor-arg>
+    </bean>
+
+</beans>

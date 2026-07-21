@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    country.xml - Spring XML Configuration File
+    Exercise 2: Spring Core - Load Country from Spring Configuration XML
+
+    This file uses the Spring Beans XML Schema (spring-beans.xsd) to define beans.
+    Spring's IoC container reads this file and creates the bean instances.
+
+    Key XML Elements:
+    - <beans>   : Root element, declares Spring XML schema namespaces
+    - <bean>    : Defines a Spring-managed bean
+      - id      : Unique identifier to retrieve the bean via context.getBean()
+      - class   : Fully-qualified Java class name Spring will instantiate
+    - <property>: Calls a setter method to inject a value
+      - name    : Property name (must match setter method: setCode -> name="code")
+      - value   : The value to inject (String/primitive)
+-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--
+        Bean: country (India)
+        Spring will:
+        1. Call new Country() (no-arg constructor)
+        2. Call setCode("IN") via <property name="code">
+        3. Call setName("India") via <property name="name">
+    -->
+    <bean id="country" class="com.cognizant.springlearn.Country">
+        <property name="code" value="IN"/>
+        <property name="name" value="India"/>
+    </bean>
+
+    <!-- Additional country beans for reference -->
+
+    <bean id="countryUS" class="com.cognizant.springlearn.Country">
+        <property name="code" value="US"/>
+        <property name="name" value="United States"/>
+    </bean>
+
+    <bean id="countryDE" class="com.cognizant.springlearn.Country">
+        <property name="code" value="DE"/>
+        <property name="name" value="Germany"/>
+    </bean>
+
+    <bean id="countryJP" class="com.cognizant.springlearn.Country">
+        <property name="code" value="JP"/>
+        <property name="name" value="Japan"/>
+    </bean>
+
+</beans>
